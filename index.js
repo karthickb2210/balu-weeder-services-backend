@@ -3,6 +3,12 @@ const mongoose = require('mongoose')
 
 const Product = require('./mdels')
  const app = express()
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
  mongoose.set('strictQuery',false)
  mongoose.connect("mongodb+srv://mailtokarthick2002:2020peccc145@productdetails.nirabqc.mongodb.net/details")
 .then(()=>{
